@@ -1,4 +1,5 @@
 import 'package:app_week5/screen/listviewuser.dart';
+import 'package:app_week5/screen/momo_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:app_week5/models/major.dart';
 import 'package:app_week5/widget/major_item.dart';
@@ -17,6 +18,10 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
+  void goToMoMo(BuildContext context){
+    Navigator.push(context, MaterialPageRoute(builder: (_) => MomoScreen()));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +32,8 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            NavButton(title: "Đi tới ListView", onPressed: () => goToListView(context))
+            NavButton(title: "Đi tới ListView", onPressed: () => goToListView(context)),
+            NavButton(title: "Đi tới Momo", onPressed: () => goToMoMo(context))
           ],
         ),
       ),
