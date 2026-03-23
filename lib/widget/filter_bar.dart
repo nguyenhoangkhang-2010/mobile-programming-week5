@@ -23,7 +23,7 @@ class FilterBar extends StatelessWidget {
                 children: [
                   FilterChipWidget(
                     label: "Sắp xếp",
-                    icon: Icons.arrow_drop_down,
+                    icon: Icons.menu,
                   ),
                   const SizedBox(width: 10),
                   FilterChipWidget(
