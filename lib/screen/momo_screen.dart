@@ -7,7 +7,7 @@ import '../widget/banner_widget.dart';
 class MomoScreen extends StatelessWidget {
     MomoScreen({super.key});
 
-  final List<FeatureModel> features = [
+    final List<FeatureModel> features = [
     FeatureModel(title: "Chuyển tiền", icon: Icons.attach_money, color: Colors.red),
     FeatureModel(title: "Thanh toán", icon: Icons.receipt, color: Colors.blue),
     FeatureModel(title: "Nạp tiền", icon: Icons.phone_android, color: Colors.green),
@@ -20,12 +20,12 @@ class MomoScreen extends StatelessWidget {
     FeatureModel(title: "Chứng khoán", icon: Icons.show_chart, color: Colors.pinkAccent),
     FeatureModel(title: "Quỹ nhóm", icon: Icons.confirmation_number, color: Colors.pinkAccent),
     FeatureModel(title: "Xem thêm dịch vụ", icon: Icons.add_circle_outline, color: Colors.pinkAccent),
-  ];
+    ];
 
-  @override
-  Widget build(BuildContext context) {
+    @override
+    Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+    appBar: AppBar(
         title: const Text(
             "MoMo",
             style: TextStyle(
@@ -33,25 +33,25 @@ class MomoScreen extends StatelessWidget {
             ),
             ),
         backgroundColor: Colors.pink,
-      ),
-      body: SingleChildScrollView(
+    ),
+        body: SingleChildScrollView(
         padding: const EdgeInsets.all(10),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
 
             GridView.builder(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: features.length,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: features.length,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 4,
                 mainAxisSpacing: 10,
                 crossAxisSpacing: 10,
-              ),
-              itemBuilder: (context, index) {
+            ),
+            itemBuilder: (context, index) {
                 return FeatureItem(feature: features[index]);
-              },
+            },
             ),
 
             const SectionTitle(title: "Sự kiện đang diễn ra"),
@@ -103,11 +103,11 @@ class MomoScreen extends StatelessWidget {
                 content: "Gieo quẻ với AI, tìm quý nhân của bạn",
                 buttonText: "Gieo ngay",
                 ),
-          ],
+        ],
         ),
-      ),
+    ),
 
-      bottomNavigationBar: BottomAppBar(
+    bottomNavigationBar: BottomAppBar(
         shape: const CircularNotchedRectangle(),
         notchMargin: 8,
         child: SizedBox(
@@ -115,14 +115,56 @@ class MomoScreen extends StatelessWidget {
             child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: const [
-                Icon(Icons.home, color: Colors.pink),
-                Icon(Icons.local_offer, color: Colors.grey),
+                Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                    Icon(Icons.home, color: Colors.pink),
+                    SizedBox(height: 2),
+                    Text("MoMo", style: TextStyle(fontSize: 11, color: Colors.pink)),
+                    ],
+                ),
 
-                SizedBox(width: 50),
+                Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                    Icon(Icons.local_offer, color: Colors.grey),
+                    SizedBox(height: 2),
+                    Text("Ưu đãi", style: TextStyle(fontSize: 11, color: Colors.grey)),
+                    ],
+                ),
 
-                Icon(Icons.history, color: Colors.grey),
-                Icon(Icons.person, color: Colors.grey),
-            ],
+                Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                        SizedBox(height: 24),
+                        Text(
+                        "Quét mã QR",
+                        style: TextStyle(
+                            fontSize: 11,
+                            color: Colors.grey,
+                        ),
+                        ),
+                    ],
+                    ),
+
+                Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                    Icon(Icons.history, color: Colors.grey),
+                    SizedBox(height: 2),
+                    Text("Lịch sử", style: TextStyle(fontSize: 11, color: Colors.grey)),
+                    ],
+                ),
+
+                Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                    Icon(Icons.person, color: Colors.grey),
+                    SizedBox(height: 2),
+                    Text("Tôi", style: TextStyle(fontSize: 11, color: Colors.grey)),
+                    ],
+                ),
+                ],
             ),
         ),
         ),
@@ -141,5 +183,5 @@ class MomoScreen extends StatelessWidget {
             ),
             floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
-  }
+    }
 }
